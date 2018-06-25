@@ -1,0 +1,5 @@
+#Ignoring classpath and eclipse settings.
+*.classpath
+*.project
+.settings
+target
