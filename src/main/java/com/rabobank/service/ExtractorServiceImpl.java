@@ -55,7 +55,7 @@ public class ExtractorServiceImpl implements ExtractorService {
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();  
         Records rootRecord= (Records) jaxbUnmarshaller.unmarshal(file);  
 
-		return rootRecord.getRecords();
+		return rootRecord.getRecord();
 	}
 
 }

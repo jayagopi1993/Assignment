@@ -15,20 +15,20 @@ public class Records {
 	public Records() {
 	}
 
-	public Records(List<Record> records) {
+	public Records(List<Record> record) {
 		super();
-		this.records = records;
+		this.record = record;
 	}
 
-	private List<Record> records;
+	private List<Record> record;
 
-	@XmlElement
-	public List<Record> getRecords() {
-		return records;
+	@XmlElement(name="record")
+	public List<Record> getRecord() {
+		return record;
 	}
 
-	public void setRecords(List<Record> records) {
-		this.records = records;
+	public void setRecord(List<Record> record) {
+		this.record = record;
 	}
 
 }

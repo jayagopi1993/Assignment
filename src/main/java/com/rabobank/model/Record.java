@@ -1,6 +1,7 @@
 package com.rabobank.model;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 
 /**
  * 
@@ -30,7 +31,7 @@ public class Record {
 		this.endBalance = endBalance;
 	}
 
-	@XmlAttribute
+	@XmlAttribute(name="reference")
 	public int getTransactionRef() {
 		return transactionRef;
 	}
@@ -39,7 +40,7 @@ public class Record {
 		this.transactionRef = transactionRef;
 	}
 
-	
+	@XmlElement(name="accountNumber")
 	public String getAccountNumber() {
 		return accountNumber;
 	}
@@ -48,7 +49,7 @@ public class Record {
 		this.accountNumber = accountNumber;
 	}
 
-	
+	@XmlElement(name="startBalance")
 	public double getStartBalance() {
 		return startBalance;
 	}
@@ -57,7 +58,7 @@ public class Record {
 		this.startBalance = startBalance;
 	}
 
-	
+	@XmlElement(name="mutation")
 	public double getMutation() {
 		return mutation;
 	}
@@ -66,7 +67,7 @@ public class Record {
 		this.mutation = mutation;
 	}
 
-	
+	@XmlElement(name="description")
 	public String getDescription() {
 		return description;
 	}
@@ -75,7 +76,7 @@ public class Record {
 		this.description = description;
 	}
 
-	
+	@XmlElement(name="endBalance")
 	public double getEndBalance() {
 		return endBalance;
 	}

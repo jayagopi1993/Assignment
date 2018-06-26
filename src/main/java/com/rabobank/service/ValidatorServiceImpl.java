@@ -8,15 +8,13 @@ import java.util.Map;
 import com.rabobank.model.Record;
 
 /**
- * @author Gopinath RM
- *	Validate given records.
- *	(duplicate check,end balance check)
+ * @author Gopinath RM Validate given records. (duplicate check,end balance
+ *         check)
  */
 public class ValidatorServiceImpl implements ValidatorService {
 
 	/**
-	 * @return List<Records>
-	 * to get duplicate records form given list.
+	 * @return List<Records> to get duplicate records form given list.
 	 */
 	public List<Record> getDuplicateRecords(List<Record> records) {
 		Map<Integer, Record> uniqeRecords = new HashMap<Integer, Record>();
@@ -31,19 +29,22 @@ public class ValidatorServiceImpl implements ValidatorService {
 		List<Record> finalDuplicateRecords = new ArrayList<Record>();
 		finalDuplicateRecords.addAll(duplicateRecords);
 		for (Record record : duplicateRecords) {
-			finalDuplicateRecords.add(uniqeRecords.get(record.getTransactionRef()));
+			if (null != uniqeRecords.get(record.getTransactionRef())) {
+				finalDuplicateRecords.add(uniqeRecords.get(record.getTransactionRef()));
+				uniqeRecords.remove(record.getTransactionRef());
+			}
 		}
 		return finalDuplicateRecords;
 	}
 
 	/**
-	 * @return List<Records>
-	 * if startbalance - mutation != endbalance then endbalance is wrong that list ll be returned.
+	 * @return List<Records> if startbalance - mutation != endbalance then
+	 *         endbalance is wrong that list ll be returned.
 	 */
 	public List<Record> getEndBalanceErrorRecords(List<Record> records) {
 		List<Record> endBalanceErrorRecords = new ArrayList<Record>();
 		for (Record record : records) {
-			if ((record.getStartBalance() - record.getMutation() - record.getEndBalance()) != 0) {
+			if (Math.round((record.getStartBalance() - record.getMutation()) - Math.round(record.getEndBalance())) != 0) {
 				endBalanceErrorRecords.add(record);
 			}
 		}
