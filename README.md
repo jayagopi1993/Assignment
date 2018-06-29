@@ -32,8 +32,8 @@ git clone https://github.com/jayagopi1993/Assignment.git
 http://localhost:8081/RobobankCSP/rabobank/processStatment
 5.	Upload input csv/xml file in the service using postman client.
 6.	The input file will be validated based on two conduction mentioned in the problem statment.(validation condition mentioned in expected output section)
-      A.	Duplicate Transaction key check, 
-      B.	End balance calculation check. (endbalance = startbalance – mutation)
+      *	Duplicate Transaction key check, 
+      *	End balance calculation check. (endbalance = startbalance – mutation)
 7.  Finally invalid records will be getting as webservice response with status code. 
 
 ### Screen Shots
@@ -44,9 +44,9 @@ http://localhost:8081/RobobankCSP/rabobank/processStatment
 
 ### Error scenario: 
 1.	Handled the following error check in input file,
-    A.	Only Csv,Xml file can be Uploaded. Other file format will not be suported.
-    B.	Mandatory input check.
-    C.	Application runtime exception also handled using @ExceptionHandler.
+    *	Only Csv,Xml file can be Uploaded. Other file format will not be suported.
+    *	Mandatory input check.
+    *	Application runtime exception also handled using @ExceptionHandler.
 
 ![Screen Shot](https://github.com/jayagopi1993/Assignment/blob/master/documentation/processStatment_error.PNG?raw=true)
 
